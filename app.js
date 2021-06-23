@@ -24,6 +24,6 @@ app.use((err, req, res, next) => {
     message: err.message || "Internal Server Error",
   });
 });
-db.sequelize.sync();
+db.sequelize.sync({ alter: true });
 
 app.listen(8080, () => console.log(`The Applicatin Runs On localhost:8080`));

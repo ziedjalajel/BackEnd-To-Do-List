@@ -31,8 +31,8 @@ exports.taskDetail = async (req, res) => res.json(req.task);
 exports.taskUpdate = async (req, res, next) => {
   try {
     await req.task.update(req.body);
-    res.status(204).end();
-  } catch (err) {
+    res.status(201).json(req.task);
+  } catch (error) {
     next(error);
   }
 };
@@ -40,7 +40,7 @@ exports.taskDelete = async (req, res, next) => {
   try {
     await req.task.destroy();
     res.status(201).end();
-  } catch (err) {
+  } catch (error) {
     next(error);
   }
 };
